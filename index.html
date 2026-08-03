@@ -1,134 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>STEM OutReach</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #222;
+      font-family: "Inter", sans-serif;
+      color: #172033;
       background: #ffffff;
     }
 
-    header {
-      background: white;
-      border-bottom: 1px solid #ddd;
-      padding: 18px 30px;
-    }
-
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #145da0;
-    }
-
-    nav a {
+    a {
       text-decoration: none;
-      color: #333;
-      margin-left: 18px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e8edf3;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 700;
+      color: #155eef;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #3d4758;
       font-size: 15px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #155eef;
+    }
+
+    .join-button {
+      background: #155eef;
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 10px;
     }
 
     .hero {
-      min-height: 460px;
-      background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url("images/hero.jpg") center/cover;
+      min-height: 680px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      color: white;
-      padding: 40px 20px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8, 23, 51, 0.92) 0%,
+          rgba(8, 23, 51, 0.72) 45%,
+          rgba(8, 23, 51, 0.30) 100%
+        ),
+        url("images/hero.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+
+    .hero-text {
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      color: #d9e6ff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
     .hero h1 {
-      font-size: 56px;
-      margin-bottom: 10px;
+      margin: 0;
+      color: white;
+      font-size: clamp(48px, 7vw, 78px);
+      line-height: 1.05;
+      letter-spacing: -2px;
     }
 
     .hero p {
-      font-size: 22px;
-      max-width: 700px;
-      margin: auto;
+      margin: 24px 0 0;
+      max-width: 620px;
+      color: #e7edf8;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+
+    .primary-button,
+    .secondary-button {
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .primary-button {
+      background: #ffffff;
+      color: #155eef;
+    }
+
+    .secondary-button {
+      border: 1px solid rgba(255,255,255,0.45);
+      color: white;
+      background: rgba(255,255,255,0.08);
     }
 
     .section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 70px 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 95px 24px;
     }
 
-    .section h2 {
-      text-align: center;
-      color: #145da0;
-      font-size: 34px;
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 44px;
     }
 
-    .section p {
-      font-size: 17px;
+    .section-heading span {
+      color: #155eef;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .section-heading h2 {
+      margin: 12px 0 0;
+      font-size: 42px;
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      color: #172033;
+    }
+
+    .section-heading p {
+      margin-top: 18px;
+      color: #647084;
+      font-size: 18px;
       line-height: 1.7;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .mission-copy {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #485466;
+    }
+
+    .mission-card {
+      background: #f5f8ff;
+      border: 1px solid #e0e8f5;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .mission-card h3 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .mission-card ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+      color: #536174;
+      line-height: 1.8;
+    }
+
+    .topics-section {
+      background: #f7f9fc;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 35px;
     }
 
     .card {
-      background: #f5f8fc;
-      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #e6ebf2;
+      box-shadow: 0 12px 32px rgba(28, 45, 74, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(28, 45, 74, 0.10);
     }
 
     .card img {
       width: 100%;
-      height: 180px;
+      height: 220px;
       object-fit: cover;
     }
 
     .card-content {
-      padding: 20px;
-    }
-
-    footer {
-      background: #0d2f4f;
-      color: white;
-      text-align: center;
       padding: 24px;
     }
 
-    @media (max-width: 800px) {
-      .nav {
-        flex-direction: column;
-        gap: 15px;
+    .card-content h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .card-content p {
+      margin: 12px 0 0;
+      color: #677286;
+      line-height: 1.7;
+    }
+
+    .cta {
+      margin: 90px auto;
+      max-width: 1180px;
+      padding: 55px 40px;
+      border-radius: 24px;
+      background: #155eef;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin: 0;
+      font-size: 38px;
+      letter-spacing: -1px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 18px auto 28px;
+      color: #dce7ff;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 14px 22px;
+      background: white;
+      color: #155eef;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    footer {
+      background: #0e1728;
+      color: #aeb8c8;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
       }
 
-      nav {
-        text-align: center;
+      .hero {
+        min-height: 620px;
       }
 
-      nav a {
-        display: inline-block;
-        margin: 5px 8px;
+      .mission-grid {
+        grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 40px;
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2 {
+        font-size: 34px;
+      }
+
+      .cta {
+        margin: 60px 20px;
       }
     }
   </style>
@@ -137,73 +346,139 @@
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">STEM OutReach</div>
+  <div class="navbar">
+    <a href="index.html" class="brand">STEM OutReach</a>
 
-    <nav>
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="articles.html">Articles</a>
-      <a href="our-activities.html">Our Activities</a>
+      <a href="our-activities.html">Activities</a>
       <a href="about.html">About</a>
-      <a href="join-us.html">Join Us</a>
+      <a href="join-us.html" class="join-button">Join Us</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div>
-    <h1>STEM OutReach</h1>
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="eyebrow">Learning without limits</span>
+
+      <h1>Building brighter futures through STEM</h1>
+
+      <p>
+        STEM OutReach helps students discover science, technology,
+        engineering, and mathematics through hands-on learning,
+        mentorship, and accessible educational resources.
+      </p>
+
+      <div class="hero-actions">
+        <a href="our-activities.html" class="primary-button">Explore Our Work</a>
+        <a href="join-us.html" class="secondary-button">Get Involved</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <span>Our Mission</span>
+    <h2>Making STEM education accessible, practical, and inspiring</h2>
     <p>
-      Inspiring students through science, technology, engineering,
-      mathematics, mentorship, and hands-on learning.
+      We create meaningful learning opportunities that help students
+      build confidence, explore new ideas, and see themselves in the
+      future of science and technology.
     </p>
   </div>
-</section>
 
-<section class="section">
-  <h2>Our Mission</h2>
+  <div class="mission-grid">
+    <div class="mission-copy">
+      <p>
+        STEM OutReach works to reduce barriers to high-quality STEM education.
+        Through workshops, mentorship, educational articles, and hands-on
+        activities, we help students develop curiosity and practical skills.
+      </p>
 
-  <p>
-    Our mission is to make STEM education accessible and engaging for students
-    from all backgrounds. We provide educational resources, hands-on activities,
-    mentorship, and opportunities that encourage curiosity, creativity, and innovation.
-  </p>
-</section>
-
-<section class="section">
-  <h2>Explore STEM</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <img src="images/robotics.jpg" alt="Students learning robotics">
-      <div class="card-content">
-        <h3>Robotics</h3>
-        <p>Learn programming, sensors, motors, automation, and engineering.</p>
-      </div>
+      <p>
+        Our goal is to support students from every background and encourage
+        them to explore careers in science, technology, engineering, and
+        mathematics.
+      </p>
     </div>
 
-    <div class="card">
-      <img src="images/science.jpg" alt="Students doing science experiments">
-      <div class="card-content">
-        <h3>Science Activities</h3>
-        <p>Explore experiments that make science exciting and understandable.</p>
-      </div>
-    </div>
+    <div class="mission-card">
+      <h3>What we focus on</h3>
 
-    <div class="card">
-      <img src="images/coding.jpg" alt="Students learning coding">
-      <div class="card-content">
-        <h3>Coding</h3>
-        <p>Build digital skills through programming, websites, and technology projects.</p>
-      </div>
+      <ul>
+        <li>Hands-on STEM learning</li>
+        <li>Mentorship and guidance</li>
+        <li>Accessible educational resources</li>
+        <li>Student projects and workshops</li>
+        <li>Community outreach</li>
+      </ul>
     </div>
-
   </div>
+</section>
+
+<section class="topics-section">
+  <div class="section">
+    <div class="section-heading">
+      <span>Explore STEM</span>
+      <h2>Learn by building, experimenting, and creating</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <img src="images/robotics.jpg" alt="Students working on robotics">
+        <div class="card-content">
+          <h3>Robotics</h3>
+          <p>
+            Explore programming, sensors, motors, automation,
+            and real-world engineering.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/science.jpg" alt="Students doing science experiments">
+        <div class="card-content">
+          <h3>Science</h3>
+          <p>
+            Discover experiments and ideas that make science
+            exciting and understandable.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/coding.jpg" alt="Students learning coding">
+        <div class="card-content">
+          <h3>Coding</h3>
+          <p>
+            Learn programming, web development, and digital
+            problem-solving skills.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Help us expand access to STEM education</h2>
+  <p>
+    Join our community, volunteer, share resources, or support
+    students through mentorship and educational programs.
+  </p>
+
+  <a href="join-us.html">Join STEM OutReach</a>
 </section>
 
 <footer>
-  © 2026 STEM OutReach. All rights reserved.
+  <div class="footer-inner">
+    <div>© 2026 STEM OutReach</div>
+    <div>Science • Technology • Engineering • Mathematics</div>
+  </div>
 </footer>
 
 </body>
