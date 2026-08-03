@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEM OutReach</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #222;
+      background: #ffffff;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #ddd;
+      padding: 18px 30px;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #145da0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 18px;
+      font-size: 15px;
+    }
+
+    .hero {
+      min-height: 460px;
+      background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("images/hero.jpg") center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 70px 24px;
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #145da0;
+      font-size: 34px;
+    }
+
+    .section p {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: #f5f8fc;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    footer {
+      background: #0d2f4f;
+      color: white;
+      text-align: center;
+      padding: 24px;
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 8px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">STEM OutReach</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="articles.html">Articles</a>
+      <a href="our-activities.html">Our Activities</a>
+      <a href="about.html">About</a>
+      <a href="join-us.html">Join Us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>STEM OutReach</h1>
+    <p>
+      Inspiring students through science, technology, engineering,
+      mathematics, mentorship, and hands-on learning.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Our Mission</h2>
+
+  <p>
+    Our mission is to make STEM education accessible and engaging for students
+    from all backgrounds. We provide educational resources, hands-on activities,
+    mentorship, and opportunities that encourage curiosity, creativity, and innovation.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Explore STEM</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="images/robotics.jpg" alt="Students learning robotics">
+      <div class="card-content">
+        <h3>Robotics</h3>
+        <p>Learn programming, sensors, motors, automation, and engineering.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/science.jpg" alt="Students doing science experiments">
+      <div class="card-content">
+        <h3>Science Activities</h3>
+        <p>Explore experiments that make science exciting and understandable.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/coding.jpg" alt="Students learning coding">
+      <div class="card-content">
+        <h3>Coding</h3>
+        <p>Build digital skills through programming, websites, and technology projects.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 STEM OutReach. All rights reserved.
+</footer>
+
+</body>
+</html>
